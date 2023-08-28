@@ -1,0 +1,8 @@
+atari:
+    noop_max: 30
+    skip: 4
+    episode_life: True
+    warp_frame: True
+    clip_rewards: True
+    frame_stack: True
+    scale: False

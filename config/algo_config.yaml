@@ -1,0 +1,59 @@
+dqn: 
+  agent: "dqn"
+  config: 
+    dueling: False
+    double: False
+    multi_step_n: 1
+  buffer: "vanilla"
+
+per: 
+  agent: "dqn"
+  config: 
+    dueling: False
+    double: False
+    multi_step_n: 1
+  buffer: "per"
+
+d2qn: 
+  agent: "dqn"
+  config: 
+    dueling: False
+    double: True
+    multi_step_n: 1
+  buffer: "vanilla"
+
+d3qn:
+  agent: "dqn"
+  config: 
+    dueling: True
+    double: True
+    multi_step_n: 1
+  buffer: "vanilla"
+
+c51:
+  agent: "rainbow"
+  config:
+    dueling: False
+    double: False
+    noisy: False
+    num_atoms: 51
+    noisy: False
+    noisy_std: 0
+    v_min: -10
+    v_max: 10
+    multi_step_n: 1
+  buffer: "vanilla"
+
+rainbow:
+  agent: "rainbow"
+  config:
+    dueling: True
+    double: True
+    noisy: True
+    num_atoms: 51
+    noisy: True
+    noisy_std: 0.5
+    v_min: -10
+    v_max: 10
+    multi_step_n: 3
+  buffer: "per"
