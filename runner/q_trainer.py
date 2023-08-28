@@ -68,7 +68,6 @@ class QTrainer(BaseRunner):
         # other parameters
         self.n_steps = args.n_steps
         self.batch_size = args.batch_size
-        self.start_red_learning = args.start_red_learning
         self.start_agent_learning = args.start_agent_learning
         self.learning_interval = args.learning_interval
         self.target_update_interval = args.target_update_interval
@@ -110,7 +109,7 @@ class QTrainer(BaseRunner):
             "reward_std": [], "reward_min": [], "reward_max": []}
         obs = self.env.reset()
 
-        red_loss, td_loss, eval_reward = None, None, None
+        td_loss, eval_reward = None, None
         pbar = tqdm(range(self.n_steps), desc= "Training {} on {}.{} (seed: {})".format(
             self.args.algo.upper(), self.args.env.title(), self.args.env_name, self.seed))
 
@@ -175,7 +174,7 @@ class QTrainer(BaseRunner):
                     records["reward_max"].append(np.max(episode_rewards))
                     eval_reward = records["reward_mean"][-1]
 
-            pbar.set_postfix(red_loss=red_loss, td_loss=td_loss, eval_reward=eval_reward)
+            pbar.set_postfix(td_loss=td_loss, eval_reward=eval_reward)
 
         # save
         self.agent.save_model(os.path.join(self.model_dir, "model_seed-{}.pth".format(self.seed)))
