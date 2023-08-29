@@ -35,7 +35,6 @@ c51:
   config:
     dueling: False
     double: False
-    noisy: False
     num_atoms: 51
     noisy: False
     noisy_std: 0
@@ -49,7 +48,6 @@ rainbow:
   config:
     dueling: True
     double: True
-    noisy: True
     num_atoms: 51
     noisy: True
     noisy_std: 0.5
